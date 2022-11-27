@@ -25,6 +25,7 @@
     9. Print out both "store" and "candy"
 */
 
+// Step 1:
 const banana = {
   name: "banana",
   quantity: 1,
@@ -43,12 +44,14 @@ const candy = {
   price: 3.5,
 };
 
+//Step 2:
 const store = new Map();
 store.set("storeNumber", 5);
 store.set("locationCity", "Milan");
 store.set("locationCountry", "Italy");
 store.set("products", [banana, apple, candy]);
 
+// Step 3:
 console.log(store);
 // Map(4) {
 //     'storeNumber' => 5,
@@ -61,6 +64,7 @@ console.log(store);
 //     ]
 //   }
 
+// Step 4:
 console.log(store.get("products"));
 // [
 //     { name: 'banana', quantity: 1, price: 1.95 },
@@ -68,10 +72,23 @@ console.log(store.get("products"));
 //     { name: 'candy', quantity: 1, price: 3.5 }
 //   ]
 
+// Step 4 "better":
+for (let i = 0; i < store.get("products").length; i++) {
+  console.log(store.get("products")[i]);
+}
+// { name: 'banana', quantity: 1, price: 1.95 }
+// { name: 'apple', quantity: 1, price: 1.45 }
+// { name: 'candy', quantity: 1, price: 3.5 }
+// { name: 'candy', quantity: 1, price: 3.5 }
+
+// Step 5:
 console.log(store.get("products")[2]);
 // { name: 'candy', quantity: 1, price: 3.5 }
 
+// Step 6:
 store.get("products")[0].price = 1.75;
+
+// Step 7:
 console.log(store);
 // Map(4) {
 //     'storeNumber' => 5,
@@ -87,8 +104,10 @@ console.log(store);
 console.log(banana);
 // { name: 'banana', quantity: 1, price: 1.75 }
 
+// Step 8:
 candy.price = 4.99;
 
+// Step 9:
 console.log(store);
 // Map(4) {
 //     'storeNumber' => 5,
