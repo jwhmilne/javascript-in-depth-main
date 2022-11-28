@@ -8,7 +8,7 @@
         4 2
 
         (4 is where the duplicate index was)
-        (2 is where the firstr pair of that duplicate was, as an index)
+        (2 is where the first pair of that duplicate was, as an index)
 
     HINT: Use a Map to keep track of number➔index pairs
 
