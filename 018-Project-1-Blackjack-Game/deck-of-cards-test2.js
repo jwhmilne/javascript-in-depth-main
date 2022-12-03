@@ -17,3 +17,5 @@ function getDeck() {
 }
 
 console.log(getDeck());
+
+// Need to work out how to add values to each card, so that A = 1, 2 = 2, J = 10, Q = 10, K = 10 (and so on)
