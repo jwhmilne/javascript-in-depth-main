@@ -44,4 +44,4 @@ for (item of backpack) {
 console.log(`Total: $${totalValue}`);
 // Total: $10405
 
-// remember to revise
+// revise when possible (+ all before it)
