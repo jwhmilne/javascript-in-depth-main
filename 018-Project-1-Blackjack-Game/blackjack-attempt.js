@@ -45,7 +45,7 @@ const deck = generateDeck();
 // STEP 2: CREATE A FUNCTION TO DRAW A RANDOM CARD
 
 // Create a function to draw a card (store in a variable):
-const card = function drawCard(deck) {
+const drawCard = function drawCard() {
   // Use js math function to generate a random "index"(integer) of the cards:
   let randomCardIndex = Math.floor(Math.random() * deck.length);
   // Create a randomCard variable of a random card using the random "index":
@@ -56,6 +56,8 @@ const card = function drawCard(deck) {
   return randomCard;
 };
 
+const newCard = drawCard(deck);
+
 console.log("Draw one:");
-console.log(card(deck));
+console.log(newCard);
 console.log(deck);
