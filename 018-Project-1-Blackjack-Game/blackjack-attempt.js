@@ -39,13 +39,14 @@ function generateDeck() {
 
 // Store the function that creates a deck into a variable:
 const deck = generateDeck();
-// Show the complete deck:
+
+// // Show the complete deck:
 // console.log(deck); // it works
 
 // STEP 2: CREATE A FUNCTION TO DRAW A RANDOM CARD
 
-// Create a function to draw a card (store in a variable):
-const drawCard = function drawCard() {
+// Create a function to draw a card:
+function drawCard() {
   // Use js math function to generate a random "index"(integer) of the cards:
   let randomCardIndex = Math.floor(Math.random() * deck.length);
   // Create a randomCard variable of a random card using the random "index":
@@ -54,10 +55,15 @@ const drawCard = function drawCard() {
   deck.splice(randomCardIndex, 1);
   // Return the removed randomCard:
   return randomCard;
-};
+}
 
+// Store the function that draws a card from the deck in a variable:
 const newCard = drawCard(deck);
 
 console.log("Draw one:");
 console.log(newCard);
 console.log(deck);
+
+// STEP 3: CREATE A FUNCTION TO CHECK THE SCORE OF A HAND
+
+function checkScore 
