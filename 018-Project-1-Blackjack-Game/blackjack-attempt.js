@@ -58,16 +58,16 @@ function drawCard(deck) {
 }
 
 // Store the function to several newCard variables:
-// const newCard1 = drawCard(deck);
-// const newCard2 = drawCard(deck);
-// const newCard3 = drawCard(deck);
-// const newCard4 = drawCard(deck);
-// const newCard5 = drawCard(deck);
-// const newCard6 = drawCard(deck);
-// const newCard7 = drawCard(deck);
-// const newCard8 = drawCard(deck);
-// const newCard9 = drawCard(deck);
-// const newCard10 = drawCard(deck);
+const newCard1 = drawCard(deck);
+const newCard2 = drawCard(deck);
+const newCard3 = drawCard(deck);
+const newCard4 = drawCard(deck);
+const newCard5 = drawCard(deck);
+const newCard6 = drawCard(deck);
+const newCard7 = drawCard(deck);
+const newCard8 = drawCard(deck);
+const newCard9 = drawCard(deck);
+const newCard10 = drawCard(deck);
 
 // STEP 3: CREATE A FUNCTION TO CHECK THE SCORE OF A HAND
 
