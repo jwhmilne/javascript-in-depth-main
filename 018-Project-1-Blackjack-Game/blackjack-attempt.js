@@ -118,9 +118,25 @@ function checkScore(hand) {
   ]) {
     deck[index] = 10;
   }
+
+  if (hand.length > 1) {
+    let handScore = hand.reduce((prevCard, nextCard) => prevCard + nextCard, 0);
+    return handScore;
+  } else {
+    handScore = hand[0];
+    return handScore;
+  }
 }
+
+const playerHand = new Array();
+playerHand.push(drawCard(deck));
+console.log(playerHand);
+
+console.log(checkScore(playerHand));
 
 // }
 
 // const playerHand = new Array();
 // playerHand.push(newCard1);
+
+// stuck
