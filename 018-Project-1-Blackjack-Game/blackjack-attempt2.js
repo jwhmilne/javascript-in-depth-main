@@ -1,6 +1,7 @@
-// STEP 1. GENERATE A DECK
+// STEP 1. GENERATE A DECK:
+
 const generateDeck = () => {
-  // Set up card properties
+  // Set up card properties:
   const faces = [
     "Ace",
     "1",
@@ -18,34 +19,46 @@ const generateDeck = () => {
     "King",
   ];
   const suits = ["Hearts", "Diamonds", "Clubs", "Spades"];
-  // Create a place to put each card in
-  let deck = new Array();
-  // Get every deck and array
+  // Create a place to put each card in:
+  let deck = [];
+  // Get every deck and array:
   for (let i = 0; i < suits.length; i++) {
     for (let x = 0; x < faces.length; x++) {
-      // Create a card object with every suit and face
+      // Create a card object with every suit and face:
       let card = {
         Face: faces[x],
         Suit: suits[i],
       };
-      // Add the card objects to a new deck
+      // Add the card objects to a new deck:
       deck.push(card);
     }
   }
   return deck;
 };
 
-// Store generateDeck() into a variable
-let deck = generateDeck();
+const deck = generateDeck();
 
-// Log the deck out
-console.log(deck); // it works!
+// STEP 2: DRAW A RANDOM CARD:
 
-// const drawCard = (hand) => {};
+// Create hands
+let playerHand = [];
+let dealerHand = [];
+
+const drawCard = (hand) => {
+  // Store a random number from 1-52 (inclusive):
+  const randomCardIndex = Math.floor(Math.random() * deck.length);
+  // Use random number as an indices for random card in deck variable:
+  const randomCard = deck[randomCardIndex];
+  // Add the randomCard to the hand:
+  hand.push(randomCard);
+  // Remove the card from the deck:
+  deck.splice(randomCardIndex, 1);
+  // Return the hand:
+  return hand;
+};
 
 // const checkScore = (hand) => {};
 
-// const deck = generateDeck();
 // const playerHand = [];
 // const dealerHand = [];
 
