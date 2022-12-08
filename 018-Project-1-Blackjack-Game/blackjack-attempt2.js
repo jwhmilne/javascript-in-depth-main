@@ -57,6 +57,8 @@ const drawCard = (hand) => {
   return hand;
 };
 
+console.log(drawCard(playerHand));
+
 // const checkScore = (hand) => {};
 
 // const playerHand = [];
