@@ -58,6 +58,7 @@ const drawCard = (hand) => {
 };
 
 console.log(drawCard(playerHand));
+console.log(drawCard(dealerHand));
 
 // const checkScore = (hand) => {};
 
