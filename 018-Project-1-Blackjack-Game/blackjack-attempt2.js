@@ -56,8 +56,6 @@ const drawCard = (hand) => {
   return hand;
 };
 
-console.log(drawCard(playerHand));
-
 // STEP 3: CHECK SCORE:
 
 const checkScore = (hand) => {
@@ -78,11 +76,18 @@ const checkScore = (hand) => {
       score += Number(card.Face);
     }
   }
-  return score;
+  if (score <= 21) {
+    return score;
+  } else {
+    console.log("Bust!");
+  }
 };
 
-console.log(checkScore(playerHand));
-// ReferenceError: card is not defined at checkScore
+// STEP 4: PLAY:
+
+// Draw a card for the player > check score > if score is <= 21 > draw hand > repeat
+// Same with dealer
+// Console it all out
 
 // const playerHand = [];
 // const dealerHand = [];
