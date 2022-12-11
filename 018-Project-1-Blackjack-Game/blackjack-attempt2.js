@@ -4,7 +4,6 @@ const generateDeck = () => {
   // Set up card properties:
   const faces = [
     "Ace",
-    "1",
     "2",
     "3",
     "4",
@@ -29,7 +28,6 @@ const generateDeck = () => {
         Face: faces[x],
         Suit: suits[i],
       };
-      // Add the card objects to a new deck:
       deck.push(card);
     }
   }
@@ -58,9 +56,34 @@ const drawCard = (hand) => {
 };
 
 console.log(drawCard(playerHand));
-console.log(drawCard(dealerHand));
+console.log(drawCard(playerHand));
 
-// const checkScore = (hand) => {};
+// console.log(playerHand);
+// e.g. [ { Face: '2', Suit: 'Clubs' }, { Face: '7', Suit: 'Diamonds' } ]
+
+// STEP 3: CHECK SCORE:
+
+const checkScore = (hand) => {
+  let score = 0;
+  for (card of hand) {
+    if (
+      card.Face === "10" ||
+      card.Face === "Jack" ||
+      card.Face === "Queen" ||
+      card.Face === "King"
+    ) {
+      score += 10;
+    } else if (card.Face === "Ace") {
+      score += 1;
+    } else {
+      score += Number(card.Face);
+    }
+    return score;
+  }
+};
+
+console.log(checkScore(playerHand));
+// ReferenceError: card is not defined at checkScore
 
 // const playerHand = [];
 // const dealerHand = [];
