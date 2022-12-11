@@ -57,7 +57,6 @@ const drawCard = (hand) => {
 };
 
 console.log(drawCard(playerHand));
-console.log(drawCard(playerHand));
 
 // STEP 3: CHECK SCORE:
 
@@ -78,8 +77,8 @@ const checkScore = (hand) => {
     } else {
       score += Number(card.Face);
     }
-    return score;
   }
+  return score;
 };
 
 console.log(checkScore(playerHand));
