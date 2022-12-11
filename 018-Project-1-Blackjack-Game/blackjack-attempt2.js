@@ -29,6 +29,7 @@ const generateDeck = () => {
         Suit: suits[i],
       };
       deck.push(card);
+      // deck.push(`The ${card.Face} of ${card.Suit}`); - returns NaN for score check for some reason
     }
   }
   return deck;
@@ -58,13 +59,12 @@ const drawCard = (hand) => {
 console.log(drawCard(playerHand));
 console.log(drawCard(playerHand));
 
-// console.log(playerHand);
-// e.g. [ { Face: '2', Suit: 'Clubs' }, { Face: '7', Suit: 'Diamonds' } ]
-
 // STEP 3: CHECK SCORE:
 
 const checkScore = (hand) => {
+  // Set the score to 0
   let score = 0;
+  // Set a score for each card of the handt a
   for (card of hand) {
     if (
       card.Face === "10" ||
