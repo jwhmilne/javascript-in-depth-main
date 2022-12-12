@@ -89,37 +89,41 @@ const checkScore = (hand) => {
 // Same with dealer
 // Console it all out
 
-console.log(`Starting Game...`);
+console.log(`Starting game...`);
 
-console.log("---");
+console.log("...");
 
-console.log(`Player's Turn...`);
+console.log(`Player's turn...`);
 drawCard(playerHand);
 drawCard(playerHand);
-console.log(`Player's Hand:`);
+console.log(`Player drew two cards...`);
 console.log(playerHand);
 console.log("Player's Score: " + checkScore(playerHand));
-while (checkScore(playerHand) <= 19) {
-  console.log(`Player says, "Hit me!"`);
+if (checkScore(playerHand) <= 17) {
+  console.log("Player drew one card...");
   console.log(drawCard(playerHand));
+  if (typeof checkScore(playerHand) === "number") {
+    console.log("Player's Score: " + checkScore(playerHand));
+  }
 }
-console.log(`Player's Final Score:`);
-console.log(checkScore(playerHand));
 
-console.log("---");
+console.log("...");
 
-console.log(`Dealer's Turn...`);
-drawCard(dealerHand);
-drawCard(dealerHand);
-console.log(`Dealer's Hand:`);
-console.log(dealerHand);
-console.log("Dealer's Score: " + checkScore(dealerHand));
-while (checkScore(dealerHand) <= 19) {
-  console.log(`Dealer says, "Hit me!"`);
-  console.log(drawCard(dealerHand));
+console.log(`Player's turn...`);
+drawCard(playerHand);
+drawCard(playerHand);
+console.log(`Player drew two cards...`);
+console.log(playerHand);
+console.log("Player's Score: " + checkScore(playerHand));
+if (checkScore(playerHand) <= 17) {
+  console.log("Player drew one card...");
+  console.log(drawCard(playerHand));
+  if (typeof checkScore(playerHand) === "number") {
+    console.log("Player's Score: " + checkScore(playerHand));
+  }
 }
-console.log(`Dealer's Final Score:`);
-console.log(checkScore(playerHand));
+
+console.log("...");
 
 console.log("--- Results ---");
 if (
