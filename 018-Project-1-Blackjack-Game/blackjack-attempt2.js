@@ -90,12 +90,45 @@ const checkScore = (hand) => {
 // Console it all out
 
 console.log(`Starting Game...`);
-console.log(`Drawing Player Card...`);
-while (checkScore(playerHand) < 21) {
-  console.log(playerHand);
-  console.log(`Still safe. Drawing another card...`);
+
+console.log("---");
+
+console.log(`Player's Turn...`);
+drawCard(playerHand);
+drawCard(playerHand);
+console.log(`Player's Hand:`);
+console.log(playerHand);
+console.log("Player's Score: " + checkScore(playerHand));
+while (checkScore(playerHand) <= 19) {
+  console.log(`Player says, "Hit me!"`);
   console.log(drawCard(playerHand));
-  console.log(`Checking Score: ${checkScore(playerHand)}`);
+}
+console.log(`Player's Final Score:`);
+console.log(checkScore(playerHand));
+
+console.log("---");
+
+console.log(`Dealer's Turn...`);
+drawCard(dealerHand);
+drawCard(dealerHand);
+console.log(`Dealer's Hand:`);
+console.log(dealerHand);
+console.log("Dealer's Score: " + checkScore(dealerHand));
+while (checkScore(dealerHand) <= 19) {
+  console.log(`Dealer says, "Hit me!"`);
+  console.log(drawCard(dealerHand));
+}
+console.log(`Dealer's Final Score:`);
+console.log(checkScore(playerHand));
+
+console.log("--- Results ---");
+if (
+  checkScore(playerHand) > checkScore(dealerHand) &&
+  checkScore(playerHand) <= 21
+) {
+  console.log("Player Wins!");
+} else {
+  console.log("Dealer Wins!");
 }
 
 // const playerHand = [];
