@@ -91,7 +91,7 @@ const checkScore = (hand) => {
 
 console.log(`Starting game...`);
 
-console.log("...");
+console.log(" ");
 
 console.log(`Player's turn...`);
 drawCard(playerHand);
@@ -107,28 +107,29 @@ if (checkScore(playerHand) <= 17) {
   }
 }
 
-console.log("...");
+console.log(" ");
 
-console.log(`Player's turn...`);
-drawCard(playerHand);
-drawCard(playerHand);
-console.log(`Player drew two cards...`);
-console.log(playerHand);
-console.log("Player's Score: " + checkScore(playerHand));
-if (checkScore(playerHand) <= 17) {
-  console.log("Player drew one card...");
-  console.log(drawCard(playerHand));
-  if (typeof checkScore(playerHand) === "number") {
-    console.log("Player's Score: " + checkScore(playerHand));
+console.log(`Dealer's turn...`);
+drawCard(dealerHand);
+drawCard(dealerHand);
+console.log(`Dealer drew two cards...`);
+console.log(dealerHand);
+console.log("Dealer's Score: " + checkScore(dealerHand));
+if (checkScore(dealerHand) <= 17) {
+  console.log("Dealer drew one card...");
+  console.log(drawCard(dealerHand));
+  if (typeof checkScore(dealerHand) === "number") {
+    console.log("Dealer's Score: " + checkScore(dealerHand));
   }
 }
 
-console.log("...");
+console.log(" ");
 
 console.log("--- Results ---");
 if (
   checkScore(playerHand) > checkScore(dealerHand) &&
-  checkScore(playerHand) <= 21
+  checkScore(playerHand) <= 21 &&
+  typeof checkScore(playerHand) === "number"
 ) {
   console.log("Player Wins!");
 } else {
