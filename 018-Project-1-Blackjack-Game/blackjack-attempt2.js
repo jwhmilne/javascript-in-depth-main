@@ -53,7 +53,7 @@ const drawCard = (hand) => {
   // Remove the card from the deck:
   deck.splice(randomCardIndex, 1);
   // Return the hand:
-  return hand;
+  return randomCard;
 };
 
 // STEP 3: CHECK SCORE:
@@ -88,6 +88,15 @@ const checkScore = (hand) => {
 // Draw a card for the player > check score > if score is <= 21 > draw hand > repeat
 // Same with dealer
 // Console it all out
+
+console.log(`Starting Game...`);
+console.log(`Drawing Player Card...`);
+while (checkScore(playerHand) < 21) {
+  console.log(playerHand);
+  console.log(`Still safe. Drawing another card...`);
+  console.log(drawCard(playerHand));
+  console.log(`Checking Score: ${checkScore(playerHand)}`);
+}
 
 // const playerHand = [];
 // const dealerHand = [];
