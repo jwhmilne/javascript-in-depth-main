@@ -136,6 +136,8 @@ if (
   console.log("Dealer Wins!");
 }
 
+// fix dealer winning when it shouldn't
+
 // const playerHand = [];
 // const dealerHand = [];
 
