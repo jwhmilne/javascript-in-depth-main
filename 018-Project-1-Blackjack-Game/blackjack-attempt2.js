@@ -1,4 +1,4 @@
-// STEP 1. GENERATE A DECK:
+// STEP 1: GENERATE A DECK:
 
 const generateDeck = () => {
   // Set up card properties:
@@ -46,7 +46,7 @@ let dealerHand = [];
 const drawCard = (hand) => {
   // Store a random number from 1-52 (inclusive):
   const randomCardIndex = Math.floor(Math.random() * deck.length);
-  // Use random number as an indices for random card in deck variable:
+  // Use random number as indices to pick random card in deck variable:
   const randomCard = deck[randomCardIndex];
   // Add the randomCard to the hand:
   hand.push(randomCard);
@@ -58,10 +58,10 @@ const drawCard = (hand) => {
 
 // STEP 3: CHECK SCORE:
 
-const checkScore = (hand) => {
+const getScore = (hand) => {
   // Set the score to 0
   let score = 0;
-  // Set a score for each card of the handt a
+  // Set a score for each card of the hand
   for (card of hand) {
     if (
       card.Face === "10" ||
@@ -76,75 +76,117 @@ const checkScore = (hand) => {
       score += Number(card.Face);
     }
   }
-  if (score <= 21) {
-    return score;
-  } else {
-    console.log("Bust!");
-  }
+
+  return score;
 };
 
-// STEP 4: PLAY:
-
-// Draw a card for the player > check score > if score is <= 21 > draw hand > repeat
-// Same with dealer
-// Console it all out
+// STEP 4: PLAY MAIN GAME:
 
 console.log(`Starting game...`);
 
 console.log(" ");
 
+// PLAYER TURN:
+
 console.log(`Player's turn...`);
+console.log(`Player draws two cards...`);
 drawCard(playerHand);
 drawCard(playerHand);
-console.log(`Player drew two cards...`);
+console.log(`Player hand:`);
 console.log(playerHand);
-console.log("Player's Score: " + checkScore(playerHand));
-if (checkScore(playerHand) <= 17) {
-  console.log("Player drew one card...");
+console.log("Player's starting score: " + getScore(playerHand));
+if (getScore(playerHand) <= 17) {
+  console.log("Player draws another card...");
   console.log(drawCard(playerHand));
-  if (typeof checkScore(playerHand) === "number") {
-    console.log("Player's Score: " + checkScore(playerHand));
-  }
+  console.log("Player's new score: " + getScore(playerHand));
+}
+if (getScore(playerHand) <= 17) {
+  console.log("Player draws another card...");
+  console.log(drawCard(playerHand));
+  console.log("Player's new score: " + getScore(playerHand));
+}
+if (getScore(playerHand) <= 17) {
+  console.log("Player draws another card...");
+  console.log(drawCard(playerHand));
+  console.log("Player's new score: " + getScore(playerHand));
+}
+if (getScore(playerHand) <= 17) {
+  console.log("Player draws another card...");
+  console.log(drawCard(playerHand));
+  console.log("Player's new score: " + getScore(playerHand));
+}
+if (getScore(playerHand) > 21) {
+  console.log(`Player busts with a score of ${getScore(playerHand)}!`);
+} else {
+  console.log(`Player sticks with a score of ${getScore(playerHand)}!`);
 }
 
 console.log(" ");
+
+// DEALER TURN:
 
 console.log(`Dealer's turn...`);
+console.log(`Dealer draws two cards...`);
 drawCard(dealerHand);
 drawCard(dealerHand);
-console.log(`Dealer drew two cards...`);
+console.log(`Dealer's hand:`);
 console.log(dealerHand);
-console.log("Dealer's Score: " + checkScore(dealerHand));
-if (checkScore(dealerHand) <= 17) {
-  console.log("Dealer drew one card...");
+console.log("Dealer's starting score: " + getScore(dealerHand));
+if (
+  getScore(dealerHand) <= 17 &&
+  getScore(dealerHand) < getScore(playerHand) &&
+  getScore(playerHand) <= 21
+) {
+  console.log("Dealer draws another card...");
   console.log(drawCard(dealerHand));
-  if (typeof checkScore(dealerHand) === "number") {
-    console.log("Dealer's Score: " + checkScore(dealerHand));
-  }
+  console.log("Dealer's new score: " + getScore(dealerHand));
+}
+if (
+  getScore(dealerHand) <= 17 &&
+  getScore(dealerHand) < getScore(playerHand) &&
+  getScore(playerHand) <= 21
+) {
+  console.log("Dealer draws another card...");
+  console.log(drawCard(dealerHand));
+  console.log("Dealer's new score: " + getScore(dealerHand));
+}
+if (
+  getScore(dealerHand) <= 17 &&
+  getScore(dealerHand) < getScore(playerHand) &&
+  getScore(playerHand) <= 21
+) {
+  console.log("Dealer draws another card...");
+  console.log(drawCard(dealerHand));
+  console.log("Dealer's new score: " + getScore(dealerHand));
+}
+if (
+  getScore(dealerHand) <= 17 &&
+  getScore(dealerHand) < getScore(playerHand) &&
+  getScore(playerHand) <= 21
+) {
+  console.log("Dealer draws another card...");
+  console.log(drawCard(dealerHand));
+  console.log("Dealer's new score: " + getScore(dealerHand));
+}
+if (getScore(dealerHand) > 21) {
+  console.log(`Dealer busts with a score of ${getScore(dealerHand)}!`);
+} else {
+  console.log(`Dealer sticks with a score of ${getScore(dealerHand)}!`);
 }
 
 console.log(" ");
+
+// STEP 5: DISPLAY RESULTS:
 
 console.log("--- Results ---");
 if (
-  checkScore(playerHand) > checkScore(dealerHand) &&
-  checkScore(playerHand) <= 21 &&
-  typeof checkScore(playerHand) === "number"
+  (getScore(playerHand) > getScore(dealerHand) && getScore(playerHand) <= 21) ||
+  getScore(dealerHand) > 21
 ) {
-  console.log("Player Wins!");
+  console.log("Player wins!");
 } else {
-  console.log("Dealer Wins!");
+  console.log("Dealer wins!");
 }
 
-// fix dealer winning when it shouldn't
-
-// const playerHand = [];
-// const dealerHand = [];
-
-// playerHand.push(drawCard(deck));
-// dealerHand.push(drawCard(deck));
-
-// console.log("Starting Player Hand: ", playerHand);
-// console.log("Checking Player Score: ", checkScore(playerHand));
-// console.log("Starting Dealer Hand: ", dealerHand);
-// console.log("Checking Dealer Score: ", checkScore(dealerHand));
+// This was difficult
+// Fix repetitive if statements in PLAY
