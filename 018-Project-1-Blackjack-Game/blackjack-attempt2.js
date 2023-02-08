@@ -93,26 +93,31 @@ console.log(`Player draws two cards...`);
 drawCard(playerHand);
 drawCard(playerHand);
 console.log(`Player hand:`);
-console.log(playerHand);
+console.log(`> ${playerHand[0].Face} of ${playerHand[0].Suit}
+> ${playerHand[1].Face} of ${playerHand[1].Suit}`);
 console.log("Player's starting score: " + getScore(playerHand));
 if (getScore(playerHand) <= 17) {
   console.log("Player draws another card...");
-  console.log(drawCard(playerHand));
+  drawCard(playerHand);
+  console.log(`> ${playerHand[2].Face} of ${playerHand[2].Suit}`);
   console.log("Player's new score: " + getScore(playerHand));
 }
 if (getScore(playerHand) <= 17) {
   console.log("Player draws another card...");
-  console.log(drawCard(playerHand));
+  drawCard(playerHand);
+  console.log(`> ${playerHand[3].Face} of ${playerHand[3].Suit}`);
   console.log("Player's new score: " + getScore(playerHand));
 }
 if (getScore(playerHand) <= 17) {
   console.log("Player draws another card...");
-  console.log(drawCard(playerHand));
+  drawCard(playerHand);
+  console.log(`> ${playerHand[4].Face} of ${playerHand[4].Suit}`);
   console.log("Player's new score: " + getScore(playerHand));
 }
 if (getScore(playerHand) <= 17) {
   console.log("Player draws another card...");
-  console.log(drawCard(playerHand));
+  drawCard(playerHand);
+  console.log(`> ${playerHand[5].Face} of ${playerHand[5].Suit}`);
   console.log("Player's new score: " + getScore(playerHand));
 }
 if (getScore(playerHand) > 21) {
@@ -130,7 +135,8 @@ console.log(`Dealer draws two cards...`);
 drawCard(dealerHand);
 drawCard(dealerHand);
 console.log(`Dealer's hand:`);
-console.log(dealerHand);
+console.log(`> ${dealerHand[0].Face} of ${dealerHand[0].Suit}
+> ${dealerHand[1].Face} of ${dealerHand[1].Suit}`);
 console.log("Dealer's starting score: " + getScore(dealerHand));
 if (
   getScore(dealerHand) <= 17 &&
@@ -138,7 +144,8 @@ if (
   getScore(playerHand) <= 21
 ) {
   console.log("Dealer draws another card...");
-  console.log(drawCard(dealerHand));
+  drawCard(dealerHand);
+  console.log(`> ${dealerHand[2].Face} of ${dealerHand[2].Suit}`);
   console.log("Dealer's new score: " + getScore(dealerHand));
 }
 if (
@@ -147,7 +154,8 @@ if (
   getScore(playerHand) <= 21
 ) {
   console.log("Dealer draws another card...");
-  console.log(drawCard(dealerHand));
+  drawCard(dealerHand);
+  console.log(`> ${dealerHand[3].Face} of ${dealerHand[3].Suit}`);
   console.log("Dealer's new score: " + getScore(dealerHand));
 }
 if (
@@ -156,7 +164,8 @@ if (
   getScore(playerHand) <= 21
 ) {
   console.log("Dealer draws another card...");
-  console.log(drawCard(dealerHand));
+  drawCard(dealerHand);
+  console.log(`> ${dealerHand[4].Face} of ${dealerHand[4].Suit}`);
   console.log("Dealer's new score: " + getScore(dealerHand));
 }
 if (
@@ -165,7 +174,8 @@ if (
   getScore(playerHand) <= 21
 ) {
   console.log("Dealer draws another card...");
-  console.log(drawCard(dealerHand));
+  drawCard(dealerHand);
+  console.log(`> ${dealerHand[5].Face} of ${dealerHand[5].Suit}`);
   console.log("Dealer's new score: " + getScore(dealerHand));
 }
 if (getScore(dealerHand) > 21) {
