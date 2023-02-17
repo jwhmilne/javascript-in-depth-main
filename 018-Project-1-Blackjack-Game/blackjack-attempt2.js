@@ -1,3 +1,5 @@
+// BLACKJACK PROJECT: ASSISTED CHANGES
+
 // STEP 1: GENERATE A DECK:
 
 const generateDeck = () => {
