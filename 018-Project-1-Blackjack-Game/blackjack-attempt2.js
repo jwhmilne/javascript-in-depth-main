@@ -92,31 +92,40 @@ console.log(" ");
 
 console.log(`Player's turn...`);
 console.log(`Player draws two cards...`);
+// Draw first two cards
 drawCard(playerHand);
 drawCard(playerHand);
+// Show first two cards via nice concatenation
 console.log(`> ${playerHand[0].Face} of ${playerHand[0].Suit}
 > ${playerHand[1].Face} of ${playerHand[1].Suit}`);
+// Assign player score to variable
 let playerScore = getScore(playerHand);
+// Display player score
 console.log(`Player's score: ${playerScore}`);
 
-// Don't use multiple if statements:
+// Set conditions for drawing cards
 while (playerScore <= 17) {
   console.log("Player draws another card...");
+  // Draw card
   drawCard(playerHand);
+  // Show last card of hand (just dealt)
   console.log(
-    `> ${playerHand[playerHand.length - 1].Face} of ${playerHand[
-      playerHand.length - 1
-    ].Suit}`
+    `> ${playerHand[playerHand.length - 1].Face} of ${
+      playerHand[playerHand.length - 1].Suit
+    }`
   );
+  // Get score again
   playerScore = getScore(playerHand);
+  // Display score
   console.log(`Player's new score: ${playerScore}`);
-};
+}
 
+// Say whether stick or bust
 if (playerScore > 21) {
   console.log(`Player busts with a score of ${playerScore}!`);
 } else {
   console.log(`Player sticks with a score of ${playerScore}!`);
-};
+}
 
 console.log(" ");
 
@@ -124,27 +133,42 @@ console.log(" ");
 
 console.log(`Dealer's turn...`);
 console.log(`Dealer draws two cards...`);
+// Draw first two cards
 drawCard(dealerHand);
 drawCard(dealerHand);
+// Show first two cards via nice concatenation
 console.log(`> ${dealerHand[0].Face} of ${dealerHand[0].Suit}
 > ${dealerHand[1].Face} of ${dealerHand[1].Suit}`);
+// Assign dealer score to variable
 let dealerScore = getScore(dealerHand);
+// Display dealer score
 console.log(`Dealer's score: ${dealerScore}`);
 
+// Set conditions for drawing cards
+// Conditions are more complicated for dealer
 if (dealerScore > playerScore || playerScore > 21) {
-  console.log(`Dealer chuckles smugly at the easy victory and wins with a score of: ${dealerScore}`);
-} else while (dealerScore <= 17 && dealerScore < playerScore) {
-  console.log("Dealer draws another card...");
-  drawCard(dealerHand);
   console.log(
-    `> ${dealerHand[dealerHand.length - 1].Face} of ${dealerHand[
-      dealerHand.length - 1
-    ].Suit}`
+    `Dealer chuckles smugly at the easy victory and wins with a score of: ${dealerScore}`
   );
-  dealerScore = getScore(dealerHand);
-  console.log(`Dealer's new score: ${dealerScore}`);
-}
+} else
+  while (dealerScore <= 17 && dealerScore < playerScore) {
+    console.log("Dealer draws another card...");
+    // Draw card
+    drawCard(dealerHand);
+    // Show last card of hand (just dealt)
+    console.log(
+      `> ${dealerHand[dealerHand.length - 1].Face} of ${
+        dealerHand[dealerHand.length - 1].Suit
+      }`
+    );
+    // Get score again
+    dealerScore = getScore(dealerHand);
+    // Display score
+    console.log(`Dealer's new score: ${dealerScore}`);
+  }
 
+// Show if bust
+// No point showing if "stick" because either win or bust
 if (dealerScore > 21) {
   console.log(`Dealer busts with a score of ${dealerScore}!`);
 }
@@ -153,10 +177,7 @@ if (dealerScore > 21) {
 
 console.log(" ");
 console.log("--- Results ---");
-if (
-  (playerScore > dealerScore && playerScore <= 21) ||
-  dealerScore > 21
-) {
+if ((playerScore > dealerScore && playerScore <= 21) || dealerScore > 21) {
   console.log("Player wins!");
 } else {
   console.log("Dealer wins!");
